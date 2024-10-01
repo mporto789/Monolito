@@ -3,64 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\alunos;
-use App\Http\Requests\StorealunosRequest;
-use App\Http\Requests\UpdatealunosRequest;
+use Illuminate\Http\Request;
 
 class AlunosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('alunos.create'); // Retorna a view do formulário
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorealunosRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Validação dos dados
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'sobrenome' => 'required|string|max:255', // Validação para sobrenome
+            'email' => 'required|email|unique:alunos,email',
+            'data_nascimento' => 'required|date',
+        ]);
+
+        // Cria o aluno
+        alunos::create($request->all());
+
+        // Redireciona após o sucesso
+        return redirect()->route('alunos.index')->with('success', 'Aluno cadastrado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(alunos $alunos)
+    public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(alunos $alunos)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatealunosRequest $request, alunos $alunos)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(alunos $alunos)
-    {
-        //
+        $alunos = alunos::all();
+        return view('alunos.index', compact('alunos'));
     }
 }
