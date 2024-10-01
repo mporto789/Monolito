@@ -33,11 +33,6 @@ Copiar código
 cd monolito
 composer install
 ```
-```bash
-Copiar código
-cd monolito
-composer install
-```
 4. Instalando dependências do Node.js
 Em seguida, instale as dependências de frontend com NPM:
 
