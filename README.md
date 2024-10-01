@@ -7,7 +7,7 @@ Monolito é um projeto Laravel que usa XAMPP, PHP, Composer, Node.js e NPM para 
 ## Pré-requisitos
 
 Antes de começar, você precisará das seguintes ferramentas instaladas no seu sistema:
-- *[Visual Code](https://code.visualstudio.com))*: Visual Code é usado para abrir o projeto, e rodar ele em conjunto do XAMPP.
+- *[VisualCode](https://code.visualstudio.com))*: Visual Code é usado para abrir o projeto, e rodar ele em conjunto do XAMPP.
 - *[XAMPP](https://www.apachefriends.org/index.html)*: Um pacote que inclui Apache, MySQL, PHP e Perl. Utilize o XAMPP para rodar o servidor Apache e o banco de dados MySQL.
 - *[PHP >= 8.0](https://www.php.net/downloads.php)*: Certifique-se de que o PHP esteja corretamente configurado no XAMPP.
 - *[Composer](https://getcomposer.org/)*: Um gerenciador de dependências para PHP.
